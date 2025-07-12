@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - MediCare Plus</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/products.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <span>MediCare Plus</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="products.html" class="nav-link active">Products</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search medicines, health products..." id="searchInput">
+                <button type="button" onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Products</h1>
+                <p>Discover our wide range of quality medicines and health products</p>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="container">
+                <div class="products-layout">
+                    <aside class="filters-sidebar">
+                        <h3>Filter Products</h3>
+                        
+                        <div class="filter-group">
+                            <h4>Categories</h4>
+                            <div class="filter-options">
+                                <label><input type="checkbox" value="prescription" onchange="applyFilters()"> Prescription</label>
+                                <label><input type="checkbox" value="otc" onchange="applyFilters()"> Over-the-Counter</label>
+                                <label><input type="checkbox" value="supplements" onchange="applyFilters()"> Supplements</label>
+                                <label><input type="checkbox" value="medical-devices" onchange="applyFilters()"> Medical Devices</label>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Price Range</h4>
+                            <div class="price-range">
+                                <input type="range" id="priceRange" min="0" max="500" value="500" onchange="applyFilters()">
+                                <span>$0 - $<span id="priceValue">500</span></span>
+                            </div>
+                        </div>
+
+                        <div class="filter-group">
+                            <h4>Brand</h4>
+                            <div class="filter-options">
+                                <label><input type="checkbox" value="generic" onchange="applyFilters()"> Generic</label>
+                                <label><input type="checkbox" value="brand-name" onchange="applyFilters()"> Brand Name</label>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-secondary" onclick="clearFilters()">Clear Filters</button>
+                    </aside>
+
+                    <div class="products-main">
+                        <div class="products-header">
+                            <div class="results-info">
+                                <span id="resultsCount">0</span> products found
+                            </div>
+                            <div class="sort-options">
+                                <select id="sortSelect" onchange="sortProducts()">
+                                    <option value="name">Sort by Name</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="popularity">Popularity</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="products-grid" id="productsGrid">
+                            <!-- Products will be loaded dynamically -->
+                        </div>
+
+                        <div class="pagination" id="pagination">
+                            <!-- Pagination will be added dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Plus</h3>
+                    <p>Your trusted online pharmacy providing quality healthcare products and professional medical guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 1-800-MEDICARE</p>
+                    <p><i class="fas fa-envelope"></i> info@medicareplus.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Health St, Medical City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediCare Plus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/products.js"></script>
+</body>
+</html>

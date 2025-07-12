@@ -3,10 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MediCare Plus - Your Online Pharmacy</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <p>Hello World </p>
-    <p>Good Morning</p>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-prescription-bottle-alt"></i>
+                    <span>MediCare Plus</span>
+                </div>
+                <nav class="nav">
+                    <a href="index.html" class="nav-link active">Hometest</a>
+                    <a href="products.html" class="nav-link">Products</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" onclick="toggleSearch()">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="login-btn">
+                        <i class="fas fa-user"></i>
+                        <span>Login</span>
+                    </a>
+                </div>
+            </div>
+            <div class="search-bar" id="searchBar">
+                <input type="text" placeholder="Search medicines, health products..." id="searchInput">
+                <button type="button" onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Your Health, Our Priority</h1>
+                    <p>Quality medicines and healthcare products delivered to your doorstep with professional care and expert guidance.</p>
+                    <div class="hero-actions">
+                        <a href="products.html" class="btn btn-primary">Shop Now</a>
+                        <a href="#categories" class="btn btn-secondary">Browse Categories</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Healthcare Professional">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-truck"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Same-day delivery available for urgent medications</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Expert Consultation</h3>
+                        <p>Free consultation with licensed pharmacists</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure & Safe</h3>
+                        <p>All medications are authentic and FDA approved</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-percent"></i>
+                        <h3>Best Prices</h3>
+                        <p>Competitive pricing with regular discounts</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories" id="categories">
+            <div class="container">
+                <h2>Shop by Category</h2>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="filterByCategory('prescription')">
+                        <img src="https://images.pexels.com/photos/3683074/pexels-photo-3683074.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Prescription Medicines">
+                        <h3>Prescription Medicines</h3>
+                        <p>Doctor prescribed medications</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('otc')">
+                        <img src="https://images.pexels.com/photos/3786157/pexels-photo-3786157.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Over-the-Counter">
+                        <h3>Over-the-Counter</h3>
+                        <p>Common medications without prescription</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('supplements')">
+                        <img src="https://images.pexels.com/photos/3735657/pexels-photo-3735657.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Health Supplements">
+                        <h3>Health Supplements</h3>
+                        <p>Vitamins and nutritional supplements</p>
+                    </div>
+                    <div class="category-card" onclick="filterByCategory('medical-devices')">
+                        <img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Medical Devices">
+                        <h3>Medical Devices</h3>
+                        <p>Health monitoring and care devices</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-products">
+            <div class="container">
+                <h2>Featured Products</h2>
+                <div class="products-grid" id="featuredProducts">
+                    <!-- Products will be loaded dynamically -->
+                </div>
+                <div class="text-center">
+                    <a href="products.html" class="btn btn-outline">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to our newsletter for health tips, product updates, and exclusive offers</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MediCare Plus</h3>
+                    <p>Your trusted online pharmacy providing quality healthcare products and professional medical guidance.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Help & Support</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><i class="fas fa-phone"></i> 1-800-MEDICARE</p>
+                    <p><i class="fas fa-envelope"></i> info@medicareplus.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Health St, Medical City</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MediCare Plus. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
