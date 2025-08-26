@@ -5,6 +5,7 @@ import fs from 'fs';
 import dotenv from "dotenv";
 import config from "./config/config.js";
 import productRoutes from "./routes/productRoutes.js";
+import authRoute from "./routes/authRoute.js"
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.get("/", (req, res) => {
         version: config.version,
     });
 });
+app.use("/api/auth", authRoutes);
 
 app.use("/products", productRoutes);
 
