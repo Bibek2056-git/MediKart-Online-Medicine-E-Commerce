@@ -1,4 +1,4 @@
-import authService from "../services/authService.js";
+import authService from '../services/Authservices.js';
 import { createJWT } from "../utils/jwt.js";
 
 const login = async (req, res) => {
